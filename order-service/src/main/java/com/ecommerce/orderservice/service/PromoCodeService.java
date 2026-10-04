@@ -4,6 +4,7 @@ import com.ecommerce.orderservice.repository.PromoCodeRepository;
 import org.springframework.stereotype.Service;
 import com.ecommerce.orderservice.entity.PromoCode;
 import java.time.LocalDate;
+import java.util.List;
 
 @Service
 public class PromoCodeService {
@@ -15,6 +16,9 @@ public class PromoCodeService {
     }
     public PromoCode createPromoCode(PromoCode promoCode) {
         return promoCodeRepository.save(promoCode);
+    }
+    public List<PromoCode> getAllPromoCodes() {
+        return promoCodeRepository.findAll();
     }
     public PromoCode getPromoCode(String code) {
 

@@ -54,6 +54,13 @@ public class ProductController {
     public Product getProductById(@PathVariable Long id) {
         return productService.getProductById(id);
     }
+    @PutMapping("/{id}/reduce-quantity")
+    public Product reduceQuantity(
+            @PathVariable Long id,
+            @RequestParam Integer quantity) {
+
+        return productService.reduceQuantity(id, quantity);
+    }
     @PutMapping("/{id}")
     public Product updateProduct(
             @PathVariable Long id,

@@ -62,6 +62,23 @@ public class ProductService {
 
         return productRepository.save(existingProduct);
     }
+    public Product reduceQuantity(Long id, Integer quantity) {
+
+        Product product = productRepository.findById(id)
+                .orElse(null);
+
+        if (product == null) {
+            return null;
+        }
+
+        if (product.getQuantity() < quantity) {
+            throw new RuntimeException("Not enough stock");
+        }
+
+        product.setQuantity(product.getQuantity() - quantity);
+
+        return productRepository.save(product);
+    }
 
     public void deleteProduct(Long id)
     {

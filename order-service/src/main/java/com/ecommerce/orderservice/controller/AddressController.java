@@ -9,6 +9,13 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/addresses")
+@CrossOrigin(
+        origins = {
+                "http://localhost:5173",
+                "http://localhost:5174",
+                "http://localhost:5175"
+        }
+)
 public class AddressController {
 
     private final AddressService addressService;

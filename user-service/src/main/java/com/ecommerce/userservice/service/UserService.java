@@ -24,6 +24,12 @@ public class UserService {
     }
     public User registerUser(User user) {
 
+        User existingUser = findByEmail(user.getEmail());
+
+        if (existingUser != null) {
+            throw new RuntimeException("User already exists");
+        }
+
         String hashedPassword =
                 passwordEncoder.encode(user.getPassword());
 
