@@ -20,6 +20,3 @@ Thumbs.db
 .env
 application-local.properties
 application-secret.properties
-
-# Application configuration files containing secrets
-**/src/main/resources/application.properties
